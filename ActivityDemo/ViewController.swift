@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         // the "share" icon
         var share = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share:")
@@ -25,7 +24,6 @@ class ViewController: UIViewController {
             target: self, action: nil)
         self.toolbar.items=[share]
         self.textView.text = "This is some text."
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,8 +36,8 @@ class ViewController: UIViewController {
         
         let google:NSURL = NSURL(string:"http://google.com/")
         
-        // I've tried just a string, just a NSURL, and here both.
-        // same result.
+
+        // let's add a String and an NSURL
         let activityViewController = UIActivityViewController(
             activityItems: [someText, google],
             applicationActivities: nil)

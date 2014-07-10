@@ -1,7 +1,10 @@
 # UIActivityController example in Swift
 
-There seems to be a bug in XCode6 beta 3 where the only share options are copy and mail.
-There should be many, including Facebook and Twitter.
+Simple example of using a UIActivityController in Swift.
+
+You need to be logged into Facebook and Twitter for the options to share to them shows up.
+(You can do this in the simulator by going to the settings app)
+
 
 ## Licensing
 
