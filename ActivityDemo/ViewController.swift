@@ -38,6 +38,8 @@ class ViewController: UIViewController {
         
         let google:NSURL = NSURL(string:"http://google.com/")
         
+        // I've tried just a string, just a NSURL, and here both.
+        // same result.
         let activityViewController = UIActivityViewController(
             activityItems: [someText, google],
             applicationActivities: nil)
