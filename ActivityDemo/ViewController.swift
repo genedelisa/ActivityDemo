@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var toolbar: UIToolbar
+    @IBOutlet var toolbar: UIToolbar!
     
-    @IBOutlet var textView: UITextView
+    @IBOutlet var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,6 @@ class ViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func share(sender: AnyObject) {
@@ -75,7 +74,7 @@ class ViewController: UIViewController {
 //        ]
         
         
-        self.navigationController.presentViewController(activityViewController, animated: true, completion: nil)
+        self.navigationController!.presentViewController(activityViewController, animated: true, completion: nil)
     }
     
     
