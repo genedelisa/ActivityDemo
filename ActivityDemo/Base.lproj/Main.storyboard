@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FGe-bt-xWV">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,32 +18,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfz-FQ-yhS">
-                                <rect key="frame" x="0.0" y="68" width="480" height="500"/>
+                                <rect key="frame" x="21" y="106" width="3381" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="3q1-TO-QKV"/>
-                                    <constraint firstAttribute="width" constant="480" id="Hw4-m5-y2A"/>
+                                    <constraint firstAttribute="height" constant="200" id="q13-au-VZO"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7C5-iG-BQw">
-                                <rect key="frame" x="0.0" y="556" width="3381" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="3381" id="1k0-Ci-BRi"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="556" width="568" height="44"/>
                                 <items>
                                     <barButtonItem title="Item" id="4O7-wv-Ye6"/>
                                 </items>
                             </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJP-os-C3F">
+                                <rect key="frame" x="16" y="356" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dpa-aP-5Vl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7C5-iG-BQw" firstAttribute="leading" secondItem="Jfz-FQ-yhS" secondAttribute="leading" id="GwZ-Jj-rJI"/>
-                            <constraint firstItem="7C5-iG-BQw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Nsy-nb-EwV"/>
-                            <constraint firstAttribute="bottom" secondItem="7C5-iG-BQw" secondAttribute="bottom" id="eYF-h2-95I"/>
-                            <constraint firstItem="Jfz-FQ-yhS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="4" id="upe-Vb-cHA"/>
+                            <constraint firstItem="7C5-iG-BQw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7n7-VR-VtP"/>
+                            <constraint firstItem="bJP-os-C3F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9Hk-qg-sQH"/>
+                            <constraint firstItem="bJP-os-C3F" firstAttribute="top" secondItem="Jfz-FQ-yhS" secondAttribute="bottom" constant="50" id="B8b-SV-EP5"/>
+                            <constraint firstItem="Jfz-FQ-yhS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="C3j-QM-qqv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7C5-iG-BQw" secondAttribute="trailing" id="Xag-Hl-rKK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7C5-iG-BQw" secondAttribute="bottom" id="dOP-11-Fws"/>
+                            <constraint firstItem="Jfz-FQ-yhS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="xDR-xa-fcO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cHx-Vr-fMv"/>

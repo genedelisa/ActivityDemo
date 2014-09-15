@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var textView: UITextView!
     
+    var activityViewController:UIActivityViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,14 +32,18 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func buttonAction(sender: AnyObject) {
+        share(sender)
+    }
+    
     func share(sender: AnyObject) {
         let someText:String = textView.text
         
         let google:NSURL = NSURL(string:"http://google.com/")
         
-
+        
         // let's add a String and an NSURL
-        let activityViewController = UIActivityViewController(
+        activityViewController = UIActivityViewController(
             activityItems: [someText, google],
             applicationActivities: nil)
         
@@ -57,24 +63,50 @@ class ViewController: UIViewController {
         }
         
         
-//        activityViewController.excludedActivityTypes =  [
-//            UIActivityTypePostToTwitter,
-//            UIActivityTypePostToFacebook,
-//            UIActivityTypePostToWeibo,
-//            UIActivityTypeMessage,
-//            UIActivityTypeMail,
-//            UIActivityTypePrint,
-//            UIActivityTypeCopyToPasteboard,
-//            UIActivityTypeAssignToContact,
-//            UIActivityTypeSaveToCameraRoll,
-//            UIActivityTypeAddToReadingList,
-//            UIActivityTypePostToFlickr,
-//            UIActivityTypePostToVimeo,
-//            UIActivityTypePostToTencentWeibo
-//        ]
+        //        activityViewController.excludedActivityTypes =  [
+        //            UIActivityTypePostToTwitter,
+        //            UIActivityTypePostToFacebook,
+        //            UIActivityTypePostToWeibo,
+        //            UIActivityTypeMessage,
+        //            UIActivityTypeMail,
+        //            UIActivityTypePrint,
+        //            UIActivityTypeCopyToPasteboard,
+        //            UIActivityTypeAssignToContact,
+        //            UIActivityTypeSaveToCameraRoll,
+        //            UIActivityTypeAddToReadingList,
+        //            UIActivityTypePostToFlickr,
+        //            UIActivityTypePostToVimeo,
+        //            UIActivityTypePostToTencentWeibo
+        //        ]
         
-        
-        self.navigationController!.presentViewController(activityViewController, animated: true, completion: nil)
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            self.navigationController?.presentViewController(activityViewController, animated: true, completion: nil)
+        } else if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            // actually, you don't have to do this. But if you do want a popover, this is how to do it.
+            iPad(sender)
+        }
+    }
+    
+    lazy var activityPopover:UIPopoverController = {
+        return UIPopoverController(contentViewController: self.activityViewController)
+        }()
+    
+    func iPad(sender: AnyObject) {
+        if !self.activityPopover.popoverVisible {
+            if sender is UIBarButtonItem {
+                self.activityPopover.presentPopoverFromBarButtonItem(sender as UIBarButtonItem,
+                    permittedArrowDirections:.Any,
+                    animated:true)
+            } else {
+                var b = sender as UIButton
+                self.activityPopover.presentPopoverFromRect(b.frame,
+                    inView: self.view,
+                    permittedArrowDirections:.Any,
+                    animated:true)
+            }
+        } else {
+            self.activityPopover.dismissPopoverAnimated(true)
+        }
     }
     
     
