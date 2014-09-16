@@ -14,7 +14,13 @@ class ViewController: UIViewController {
     
     @IBOutlet var textView: UITextView!
     
-    var activityViewController:UIActivityViewController!
+    lazy var activityPopover:UIPopoverController = {
+        return UIPopoverController(contentViewController: self.activityViewController)
+        }()
+    
+    lazy var activityViewController:UIActivityViewController = {
+        return self.createActivityController()
+        }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,14 +42,15 @@ class ViewController: UIViewController {
         share(sender)
     }
     
-    func share(sender: AnyObject) {
+    
+    func createActivityController() -> UIActivityViewController {
         let someText:String = textView.text
         
         let google:NSURL = NSURL(string:"http://google.com/")
         
         
         // let's add a String and an NSURL
-        activityViewController = UIActivityViewController(
+        var activityViewController = UIActivityViewController(
             activityItems: [someText, google],
             applicationActivities: nil)
         
@@ -62,7 +69,7 @@ class ViewController: UIViewController {
             }
         }
         
-        
+        // you can specify these if you'd like.
         //        activityViewController.excludedActivityTypes =  [
         //            UIActivityTypePostToTwitter,
         //            UIActivityTypePostToFacebook,
@@ -79,6 +86,10 @@ class ViewController: UIViewController {
         //            UIActivityTypePostToTencentWeibo
         //        ]
         
+        return activityViewController
+    }
+    
+    func share(sender: AnyObject) {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
             self.navigationController?.presentViewController(activityViewController, animated: true, completion: nil)
         } else if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
@@ -86,10 +97,6 @@ class ViewController: UIViewController {
             iPad(sender)
         }
     }
-    
-    lazy var activityPopover:UIPopoverController = {
-        return UIPopoverController(contentViewController: self.activityViewController)
-        }()
     
     func iPad(sender: AnyObject) {
         if !self.activityPopover.popoverVisible {
@@ -108,7 +115,6 @@ class ViewController: UIViewController {
             self.activityPopover.dismissPopoverAnimated(true)
         }
     }
-    
     
 }
 
