@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // the "share" icon
-        var share = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share:")
+        let share = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share:")
         
         var spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace,
             target: self, action: nil)
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     func createActivityController() -> UIActivityViewController {
         let someText:String = textView.text
         
-        let google:NSURL = NSURL(string:"http://google.com/")
+        let google:NSURL = NSURL(string:"http://google.com/")!
         
         
         // let's add a String and an NSURL
@@ -56,16 +56,16 @@ class ViewController: UIViewController {
         
         activityViewController.completionHandler = {(activityType, completed:Bool) in
             if !completed {
-                println("cancelled")
+                print("cancelled")
                 return
             }
             
             if activityType == UIActivityTypePostToTwitter {
-                println("twitter")
+                print("twitter")
             }
             
             if activityType == UIActivityTypeMail {
-                println("mail")
+                print("mail")
             }
         }
         
@@ -101,11 +101,11 @@ class ViewController: UIViewController {
     func iPad(sender: AnyObject) {
         if !self.activityPopover.popoverVisible {
             if sender is UIBarButtonItem {
-                self.activityPopover.presentPopoverFromBarButtonItem(sender as UIBarButtonItem,
+                self.activityPopover.presentPopoverFromBarButtonItem(sender as! UIBarButtonItem,
                     permittedArrowDirections:.Any,
                     animated:true)
             } else {
-                var b = sender as UIButton
+                var b = sender as! UIButton
                 self.activityPopover.presentPopoverFromRect(b.frame,
                     inView: self.view,
                     permittedArrowDirections:.Any,

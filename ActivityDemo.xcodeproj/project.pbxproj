@@ -12,7 +12,6 @@
 		B06D0E3E196EF00F00D32E43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B06D0E3C196EF00F00D32E43 /* Main.storyboard */; };
 		B06D0E40196EF00F00D32E43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B06D0E3F196EF00F00D32E43 /* Images.xcassets */; };
 		B06D0E4C196EF00F00D32E43 /* ActivityDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06D0E4B196EF00F00D32E43 /* ActivityDemoTests.swift */; };
-		B06D0E56196EF42F00D32E43 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B06D0E55196EF42F00D32E43 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,7 +155,9 @@
 		B06D0E2B196EF00F00D32E43 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Gene De Lisa";
 				TargetAttributes = {
 					B06D0E32196EF00F00D32E43 = {
@@ -211,7 +212,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B06D0E56196EF42F00D32E43 /* README.md in Sources */,
 				B06D0E3B196EF00F00D32E43 /* ViewController.swift in Sources */,
 				B06D0E39196EF00F00D32E43 /* AppDelegate.swift in Sources */,
 			);
@@ -267,6 +267,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -333,6 +334,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = ActivityDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rockhoppertech.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -344,6 +346,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = ActivityDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rockhoppertech.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -362,6 +365,7 @@
 				);
 				INFOPLIST_FILE = ActivityDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rockhoppertech.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -377,6 +381,7 @@
 				);
 				INFOPLIST_FILE = ActivityDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rockhoppertech.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -401,6 +406,7 @@
 				B06D0E51196EF00F00D32E43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B06D0E52196EF00F00D32E43 /* Build configuration list for PBXNativeTarget "ActivityDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +415,7 @@
 				B06D0E54196EF00F00D32E43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
